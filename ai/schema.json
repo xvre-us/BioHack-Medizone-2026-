@@ -2,7 +2,21 @@
   "input": {
     "sequence_id": "string",
     "sequence_length": "integer",
-    "similarity": "number | null",
+    "confidence_signals": {
+      "latent_similarity_score": "number",
+      "classification_margin": "number"
+    },
+    "plm_findings": {
+      "predicted_functional_category": "string",
+      "top_predictions": [
+        {
+          "label": "string",
+          "probability": "number"
+        }
+      ],
+      "nearest_latent_clusters": ["string"],
+      "latent_distance": "number"
+    },
     "conserved_regions": [
       {
         "start": "integer",
