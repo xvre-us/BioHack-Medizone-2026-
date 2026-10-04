@@ -16,5 +16,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install test dependencies
+        run: pip install pytest
+
       - name: Run interpreter
         run: python ai/interpreter.py
+
+      - name: Run AI tests
+        run: pytest ai/test_interpreter.py
