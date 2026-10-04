@@ -89,10 +89,10 @@ if __name__ == "__main__":
     findings = json.loads(
         input_path.read_text(encoding="utf-8")
     )
-
+    
     print(
         json.dumps(
             interpret_findings(findings),
             indent=2
         )
-  )
+    )
