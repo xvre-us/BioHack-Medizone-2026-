@@ -115,11 +115,12 @@ def interpret_findings(findings: Dict[str, Any]) -> Dict[str, Any]:
 
     if predicted_category:
         why_it_might_matter = (
-            f"The PLM findings provide a computational clue that the "
-            f"sequence may be associated with a {predicted_category} "
-            f"feature. This can help prioritize downstream analysis, "
-            f"but the prediction does not by itself establish biological "
-            f"function."
+    f"The PLM findings provide a computational clue that the "
+    f"sequence may be associated with a {predicted_category} "
+    f"feature. This can help prioritize downstream analysis, "
+    f"but the prediction and PLM evidence do not by itself "
+    f"establish biological function."
+        )
         )
     else:
         why_it_might_matter = (
