@@ -1,26 +1,48 @@
 {
   "sequence_id": "MYSTERY_GENE_001",
   "sequence_length": 1247,
-  "similarity": 0.874,
+  "confidence_signals": {
+    "latent_similarity_score": 0.8421,
+    "classification_margin": 0.3815
+  },
+  "plm_findings": {
+    "predicted_functional_category": "kinase_like_domain",
+    "top_predictions": [
+      {
+        "label": "Serine/threonine protein kinase",
+        "probability": 0.6412
+      },
+      {
+        "label": "ATP-binding cassette transporter",
+        "probability": 0.2597
+      }
+    ],
+    "nearest_latent_clusters": [
+      "kinase_catalytic_domain",
+      "atp_binding_site"
+    ],
+    "latent_distance": 0.1579
+  },
   "conserved_regions": [
     {
       "start": 201,
       "end": 340,
-      "evidence": "High conservation within the analyzed comparison set"
-    },
-    {
-      "start": 612,
-      "end": 735,
-      "evidence": "Conserved sequence pattern detected"
+      "evidence": "High embedding conservation across reference cluster"
     }
   ],
   "variable_positions": [421, 587, 912],
   "annotations": [
     {
-      "source": "Mock database result",
-      "label": "hypothetical_protein",
-      "description": "Example annotation used for AI-layer development only",
-      "evidence": "Mock evidence; not a real database result"
+      "source": "BLASTp (nr)",
+      "label": "hypothetical protein",
+      "description": "No significant similarity found via sequence alignment",
+      "evidence": "E-value > 0.05"
+    },
+    {
+      "source": "OrphanCode ESM-2 PLM",
+      "label": "kinase_like_domain",
+      "description": "Latent representation maps to kinase catalytic fold",
+      "evidence": "latent_similarity_score = 0.8421"
     }
   ]
 }
