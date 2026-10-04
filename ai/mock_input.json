@@ -1,0 +1,26 @@
+{
+  "sequence_id": "MYSTERY_GENE_001",
+  "sequence_length": 1247,
+  "similarity": 0.874,
+  "conserved_regions": [
+    {
+      "start": 201,
+      "end": 340,
+      "evidence": "High conservation within the analyzed comparison set"
+    },
+    {
+      "start": 612,
+      "end": 735,
+      "evidence": "Conserved sequence pattern detected"
+    }
+  ],
+  "variable_positions": [421, 587, 912],
+  "annotations": [
+    {
+      "source": "Mock database result",
+      "label": "hypothetical_protein",
+      "description": "Example annotation used for AI-layer development only",
+      "evidence": "Mock evidence; not a real database result"
+    }
+  ]
+}
