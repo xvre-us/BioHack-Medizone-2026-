@@ -83,4 +83,4 @@ def test_interpreter_does_not_claim_gene_function():
 
     result = interpret_findings(findings)
 
-    assert "do not establish gene function" in result["limitations"][0]
+    assert "do not establish the biological function of the gene" in result["limitations"][0]
