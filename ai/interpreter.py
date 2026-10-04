@@ -109,42 +109,41 @@ def interpret_findings(findings: Dict[str, Any]) -> Dict[str, Any]:
             }
         )
 
-    # ---------------------------------------------------------
-    # 3. Why might this matter?
-    # ---------------------------------------------------------
+# ------------------------------------------------------------
+# 3. Why might this matter?
+# ------------------------------------------------------------
 
-    if predicted_category:
-        why_it_might_matter = (
-    f"The PLM findings provide a computational clue that the "
-    f"sequence may be associated with a {predicted_category} "
-    f"feature. This can help prioritize downstream analysis, "
-    f"but the prediction and PLM evidence do not by itself "
-    f"establish biological function."
-        )
-        )
-    else:
-        why_it_might_matter = (
-            "The available computational findings may provide useful "
-            "clues for prioritizing downstream investigation, but they "
-            "do not by themselves establish biological function."
-        )
+if predicted_category:
+    why_it_might_matter = (
+        f"The PLM findings provide a computational clue that the "
+        f"sequence may be associated with a {predicted_category} "
+        f"feature. This can help prioritize downstream analysis, "
+        f"but the prediction and PLM evidence do not by itself "
+        f"establish biological function."
+    )
+else:
+    why_it_might_matter = (
+        "The available computational findings may provide useful "
+        "clues for prioritizing downstream investigation, but they "
+        "do not by themselves establish biological function."
+    )
 
-    # ---------------------------------------------------------
-    # 4. Next investigations
-    # ---------------------------------------------------------
+# ------------------------------------------------------------
+# 4. Next investigations
+# ------------------------------------------------------------
 
-    next_investigations: List[str] = [
-        "Validate the predicted category against trusted domain or annotation databases.",
-        "Investigate whether the conserved region overlaps a known functional domain.",
-        "Check whether variable positions overlap predicted or experimentally characterized functional regions.",
-        "Compare the PLM prediction with independent sequence or structural evidence.",
-    ]
+next_investigations: List[str] = [
+    "Validate the predicted category against trusted domain or annotation databases.",
+    "Investigate whether the conserved region overlaps a known functional domain.",
+    "Check whether variable positions overlap predicted or experimentally characterized sites.",
+    "Compare the PLM prediction with independent sequence or structural evidence.",
+]
 
-    if latent_distance is not None:
-        next_investigations.append(
-            "Inspect the nearest latent reference sequences or clusters "
-            "to determine which features drive the PLM similarity."
-        )
+if latent_distance is not None:
+    next_investigations.append(
+        "Inspect the nearest latent reference sequences or clusters "
+        "to determine which features drive the PLM similarity."
+    )
 
     # ---------------------------------------------------------
     # 5. Limitations
