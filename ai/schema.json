@@ -1,0 +1,36 @@
+{
+  "input": {
+    "sequence_id": "string",
+    "sequence_length": "integer",
+    "similarity": "number | null",
+    "conserved_regions": [
+      {
+        "start": "integer",
+        "end": "integer",
+        "evidence": "string | null"
+      }
+    ],
+    "variable_positions": ["integer"],
+    "annotations": [
+      {
+        "source": "string",
+        "label": "string",
+        "description": "string | null",
+        "evidence": "string | null"
+      }
+    ]
+  },
+  "output": {
+    "what_am_i_seeing": "string",
+    "why_it_might_matter": "string",
+    "next_investigations": ["string"],
+    "evidence": [
+      {
+        "source": "string",
+        "claim": "string"
+      }
+    ],
+    "limitations": ["string"],
+    "confidence": "low | moderate | high"
+  }
+}
