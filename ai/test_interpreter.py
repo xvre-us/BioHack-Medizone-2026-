@@ -35,3 +35,52 @@ def test_interpreter_output():
         "moderate",
         "high",
     }
+def test_interpreter_with_no_similarity():
+    findings = {
+        "sequence_length": 1000,
+        "similarity": None,
+        "conserved_regions": [],
+        "variable_positions": [],
+        "annotations": []
+    }
+
+    result = interpret_findings(findings)
+
+    assert result["confidence"] == "low"
+    assert result["evidence"] == []
+
+
+def test_interpreter_reports_conserved_regions():
+    findings = {
+        "sequence_length": 1000,
+        "similarity": 0.80,
+        "conserved_regions": [
+            {"start": 100, "end": 200}
+        ],
+        "variable_positions": [],
+        "annotations": [
+            {
+                "source": "mock",
+                "description": "Conserved region detected"
+            }
+        ]
+    }
+
+    result = interpret_findings(findings)
+
+    assert "conserved region" in result["what_am_i_seeing"]
+    assert result["confidence"] == "moderate"
+
+
+def test_interpreter_does_not_claim_gene_function():
+    findings = {
+        "sequence_length": 1000,
+        "similarity": 0.95,
+        "conserved_regions": [],
+        "variable_positions": [],
+        "annotations": []
+    }
+
+    result = interpret_findings(findings)
+
+    assert "do not establish gene function" in result["limitations"][0]
